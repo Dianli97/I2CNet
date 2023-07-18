@@ -19,7 +19,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 
 2. ***I2C MSE Module***
 <p align="center">
-  <img src="fig/fig3.png" alt="模块2" width="35%">
+  <img src="fig/fig3.png" alt="模块2" width="30%">
 </p>
 
 3. ***I2C Attention Module***
