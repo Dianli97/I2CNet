@@ -40,7 +40,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
  
 4. ***DLS Module***
 <p align="center">
-  <img src="fig/fig5.png" alt="模块2" width="70%">
+  <img src="fig/fig6.png" alt="模块2" width="70%">
 </p>
 
 >Structure of DLS module.
