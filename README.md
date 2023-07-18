@@ -34,3 +34,11 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 <p align="center">
   <img src="fig/fig4.png" alt="模块2" width="70%">
 </p>
+
+>Structure of I2C Attention module.
+
+#### Code implementation ####
+* `a-layered-sensor-unit/main_experiment/model/ml/`
+  * train machine learning model (XGBoost, SVM, RandomForest, KNN).
+* `a-layered-sensor-unit/main_experiment/model/dl/model.py`
+  * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
