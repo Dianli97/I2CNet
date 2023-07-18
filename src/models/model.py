@@ -162,7 +162,7 @@ class DWResBlock(nn.Module):
 
         return parameters
 
-# ===================== GLConvBlock ===========================
+# ===================== I2C ===========================
 # The Channel Integrate Block is used to extracted the features from
 # every channels also features between channels
 # input  : (eg. [batch_size, 36, 500])   groups=3, group_width=12
@@ -170,7 +170,7 @@ class DWResBlock(nn.Module):
 # After this block, groups+1, and this block only use once.
 # ===================== GLConvBlock ==========================
 
-class GLConvBlock1(nn.Module):
+class I2Cv1(nn.Module):
 
     def __init__(
             self,
@@ -183,7 +183,7 @@ class GLConvBlock1(nn.Module):
             norm_layer: Optional[Callable[..., nn.Module]] = None,
             flag: bool = True,
     ):
-        super(GLConvBlock1, self).__init__()
+        super(I2Cv1, self).__init__()
         self.in_planes = in_planes
         self.kernel_size = kernel_size
         self.groups = groups
@@ -250,7 +250,7 @@ class GLConvBlock1(nn.Module):
         return parameters
 
 
-class GLConvBlock2(nn.Module):
+class I2Cv2(nn.Module):
 
     def __init__(
             self,
@@ -263,7 +263,7 @@ class GLConvBlock2(nn.Module):
             norm_layer: Optional[Callable[..., nn.Module]] = None,
             flag: bool = True,
     ):
-        super(GLConvBlock2, self).__init__()
+        super(I2Cv2, self).__init__()
         self.groups = groups
         self.input_length = input_length
         self.rate = rate
@@ -342,14 +342,14 @@ class GLConvBlock2(nn.Module):
         return parameters
 
 
-# ===================== DWInceptionBlock ==========================
+# ===================== I2CMSE ==========================
 # The inception block is used to extracted different scale feature
 # of the input signal.
 # input  : (eg. [batch_size, 48, 500])   groups=4, group_width=12, in_planes=48
 # output : [batch_size, 96, 500]         out_planes=96
 # the input size and output size should be an integer multiple of groups
 # ===================== DWInceptionBlock ==========================
-class GLInceptionBlock(nn.Module):
+class I2CMSE(nn.Module):
     expansion: int = 2
 
     def __init__(
@@ -358,22 +358,22 @@ class GLInceptionBlock(nn.Module):
             groups: int = 11,
             norm_layer: Optional[Callable[..., nn.Module]] = None,
     ) -> None:
-        super(GLInceptionBlock, self).__init__()
+        super(I2CMSE, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm1d
         self.in_planes = in_planes
         self.groups = groups
         self.group_width = int(in_planes / groups)
-        self.expansion = GLInceptionBlock.expansion
+        self.expansion = I2CMSE.expansion
 
-        self.branch1_1 = GLConvBlock2(in_planes, rate=self.expansion, kernel_size=5, stride=1, groups=self.groups, flag=False)
-        self.branch1_2 = GLConvBlock2(in_planes * self.expansion, rate=1, kernel_size=5, stride=1, groups=self.groups, flag=True)
+        self.branch1_1 = I2Cv2(in_planes, rate=self.expansion, kernel_size=5, stride=1, groups=self.groups, flag=False)
+        self.branch1_2 = I2Cv2(in_planes * self.expansion, rate=1, kernel_size=5, stride=1, groups=self.groups, flag=True)
 
-        self.branch2_1 = GLConvBlock2(in_planes, rate=self.expansion, kernel_size=11, stride=1, groups=self.groups, flag=False)
-        self.branch2_2 = GLConvBlock2(in_planes * self.expansion, rate=1, kernel_size=11, stride=1, groups=self.groups, flag=True)
+        self.branch2_1 = I2Cv2(in_planes, rate=self.expansion, kernel_size=11, stride=1, groups=self.groups, flag=False)
+        self.branch2_2 = I2Cv2(in_planes * self.expansion, rate=1, kernel_size=11, stride=1, groups=self.groups, flag=True)
 
-        self.branch3_1 = GLConvBlock2(in_planes, rate=self.expansion, kernel_size=21, stride=1, groups=self.groups, flag=False)
-        self.branch3_2 = GLConvBlock2(in_planes * self.expansion, rate=1, kernel_size=21, stride=1, groups=self.groups, flag=True)
+        self.branch3_1 = I2Cv2(in_planes, rate=self.expansion, kernel_size=21, stride=1, groups=self.groups, flag=False)
+        self.branch3_2 = I2Cv2(in_planes * self.expansion, rate=1, kernel_size=21, stride=1, groups=self.groups, flag=True)
 
         self._init_weights()
 
@@ -588,14 +588,14 @@ class SpatialAttentionModule(nn.Module):
         return parameters
 
 
-class DWCBAM(nn.Module):
+class I2CAttention(nn.Module):
 
     def __init__(
             self,
             in_planes: int,
             reduction: int,
     ) -> None:
-        super(DWCBAM, self).__init__()
+        super(I2CAttention, self).__init__()
 
         self.channel_attention = ChannelAttentionModule(in_planes, reduction)
         self.spatial_attention = SpatialAttentionModule(in_planes)
@@ -622,17 +622,17 @@ class DWCBAM(nn.Module):
         return parameters
 
 
-# =================== EMGNeuralNetwork ======================
+# =================== I2CNet ======================
 #
 #
-# =================== EMGNeuralNetwork ======================
-class SMC(nn.Module):
+# =================== I2CNet ======================
+class I2CNet(nn.Module):
 
     def __init__(
             self,
-            block1: GLInceptionBlock,
+            block1: I2CMSE,
             block2: DWResBlock,
-            block3: DWCBAM,
+            block3: I2CAttention,
             layers: List[int] = [22, 33],
             num_classes: int = 52,
             norm_layer: Optional[Callable[..., nn.Module]] = None
@@ -643,7 +643,7 @@ class SMC(nn.Module):
 
         self.groups = 11
         self.input_channel = 10
-        self.conv1 = GLConvBlock1(in_planes=10, rate=1, kernel_size=3, flag=True)
+        self.conv1 = I2Cv1(in_planes=10, rate=1, kernel_size=3, flag=True)
         self.input_channel += 1
         self.layer1 = self._make_layers(block1, block2, block3, layers[0], 1, expansion=2)
         self.layer2 = self._make_layers(block1, block2, block3, layers[1], 1, expansion=2)
