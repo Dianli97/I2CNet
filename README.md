@@ -17,5 +17,5 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 * `a-layered-sensor-unit/main_experiment/model/dl/model.py`
   * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
 
-### I2C MSE Module
-### I2C Attention Module
+2. ***I2C MSE Module***
+3. ***I2C Attention Module***
