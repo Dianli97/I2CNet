@@ -38,9 +38,9 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 * `I2CNet/src/models/model.py`
   * class I2CAttention: generate a I2CAttention Module.
  
-3. ***DLS Module***
+4. ***DLS Module***
 <p align="center">
-  <img src="fig/fig4.png" alt="模块2" width="70%">
+  <img src="fig/fig5.png" alt="模块2" width="70%">
 </p>
 
 >Structure of DLS module.
