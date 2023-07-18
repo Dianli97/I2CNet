@@ -13,7 +13,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 
 #### Code implementation ####
 * `I2CNet/src/models/model.py`
-  * `GLConvBlock1` .
+  * `class GLConvBlock1`:  generate a I2C convolution block of type (a).
 * `I2CNet/src/models/model.py`
   * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
 
