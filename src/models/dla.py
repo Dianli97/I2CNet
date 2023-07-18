@@ -50,18 +50,14 @@ class DLA(nn.Module):
         super(DLA, self).__init__()
 
         self.block1 = block(classes=classes)
-        #self.block2 = block(in_planes=classes, classes=classes, flag=0)
-        self.block3 = block(classes=classes)
+        self.block2 = block(classes=classes)
 
         # self.softmax = nn.Softmax(dim=1)
 
     def forward(self, x, y):
 
         out = self.block1(x, y)
-        #out = self.block2(out, y)
-        out = self.block3(out, y)
-        # out = self.softmax(out)
-
+        out = self.block2(out, y)
         return out
 
 # Dynamic Label Adjustment Strategy
