@@ -32,5 +32,5 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 
 3. ***I2C Attention Module***
 <p align="center">
-  <img src="fig/fig4.png" alt="模块2" width="60%">
+  <img src="fig/fig4.png" alt="模块2" width="70%">
 </p>
