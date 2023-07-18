@@ -6,7 +6,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 ## Different components of I2CNET
 ### I2C Convolutional Block
 <p align="left">
-  <img src="fig/fig2.png" alt="模块1" width="50%">
+  <img src="fig/fig2.png" alt="模块1" width="30%">
   <br>
   <b>模块1</b><br>
   <br>
