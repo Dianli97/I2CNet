@@ -37,3 +37,12 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 #### Code implementation ####
 * `I2CNet/src/models/model.py`
   * class I2CAttention: generate a I2CAttention Module.
+
+# Requirements
+
+* Python 3.8
+* Pytorch 1.11.0
+* sklearn 0.24.0
+
+# Usage
+You need to use a tensor with shape: **[Batch_size, channel, length]** for all the three models.
