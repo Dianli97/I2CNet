@@ -13,7 +13,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 
 #### Code implementation ####
 * `I2CNet/src/models/model.py`
-  * train machine learning model (XGBoost, SVM, RandomForest, KNN).
+  * `GLConvBlock1` .
 * `I2CNet/src/models/model.py`
   * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
 
