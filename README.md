@@ -13,8 +13,8 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 
 #### Code implementation ####
 * `I2CNet/src/models/model.py`
-  * class GLConvBlock1:  generate a I2C convolution block of type (a).
-  * class GLConvBlock2:  generate a I2C convolution block of type (b).
+  * class I2Cv1:  generate a I2C convolution block of type (a).
+  * class I2Cv2:  generate a I2C convolution block of type (b).
 
 2. ***I2C MSE Module***
 <p align="center">
@@ -25,9 +25,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 
 #### Code implementation ####
 * `I2CNet/src/models/model.py`
-  * train machine learning model (XGBoost, SVM, RandomForest, KNN).
-* `I2CNet/src/models/model.py`
-  * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
+  * class I2CMSE: generate a I2C-MSE Module.
 
 3. ***I2C Attention Module***
 <p align="center">
