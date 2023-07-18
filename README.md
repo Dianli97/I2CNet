@@ -9,6 +9,6 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
   <img src="fig/fig2.png" alt="模块1" width="45%">
 </p>
 
->Detailed architecture of our proposed neural network. The proposed architecture mainly consists of a `feature extractor`, a `label predictor`, and `label adjustor` which not included in a standard feed-forward neural network. During training phase, both label predictor and label adjustor can supervise the feature extractor.
+>Structure of two kinds of I2C convolution block. (a) First layer convolution block. (b) Non-first layer convolution block.
 ### I2C MSE Module
 ### I2C Attention Module
