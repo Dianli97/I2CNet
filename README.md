@@ -8,7 +8,6 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 <p align="left">
   <img src="fig/fig2.png" alt="模块1" width="45%">
   <br>
-  <b>模块1</b><br>
   <br>
   在这里，你可以详细地介绍模块1的功能和目标。这个模块的输入和输出是什么？如果有的话，可以给出详细的数学或代码实现。
 </p>
