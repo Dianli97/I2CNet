@@ -12,9 +12,9 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 >Structure of two kinds of I2C convolution block. (a) First layer convolution block. (b) Non-first layer convolution block.
 
 #### Code implementation ####
-* `a-layered-sensor-unit/main_experiment/model/ml/`
+* `I2CNet/src/models/model.py`
   * train machine learning model (XGBoost, SVM, RandomForest, KNN).
-* `a-layered-sensor-unit/main_experiment/model/dl/model.py`
+* `I2CNet/src/models/model.py`
   * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
 
 2. ***I2C MSE Module***
@@ -25,9 +25,9 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 >Structure of I2C MSE module.
 
 #### Code implementation ####
-* `a-layered-sensor-unit/main_experiment/model/ml/`
+* `I2CNet/src/models/model.py`
   * train machine learning model (XGBoost, SVM, RandomForest, KNN).
-* `a-layered-sensor-unit/main_experiment/model/dl/model.py`
+* `I2CNet/src/models/model.py`
   * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
 
 3. ***I2C Attention Module***
@@ -38,7 +38,7 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 >Structure of I2C Attention module.
 
 #### Code implementation ####
-* `a-layered-sensor-unit/main_experiment/model/ml/`
+* `I2CNet/src/models/model.py`
   * train machine learning model (XGBoost, SVM, RandomForest, KNN).
-* `a-layered-sensor-unit/main_experiment/model/dl/model.py`
+* `I2CNet/src/models/model.py`
   * Generate sEMG-FMG LFN model, sEMG LFN model and FMG LFN model.
