@@ -56,4 +56,4 @@ Code for methods in the paper: Intra- and Inter-Channel Deep Convolutional Neura
 * sklearn 0.24.0
 
 # Usage
-You need to use a tensor with shape: **[Batch_size, channel, length]** for all the three models.
+You need to use a tensor with shape: **[Batch_size, channel, length]** for all models.
